@@ -40,11 +40,14 @@ class Server():
 
     ### method that waits to receive data until it's finished sending via the use of a delimiter
     def recv_msg(self,sock,delim):
+  
         message = sock.recv(4096)
+
         if not message:
              raise EOFError("Error: Socket closed")
         while not message.endswith(delim):
             data = sock.recv(4096)
+            print("in not message")
             print(type(message))
             if not data:
                 raise IOError('IO error for the message sent'.format(message))
