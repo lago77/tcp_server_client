@@ -14,7 +14,7 @@ This project was written in python implementing the socket and thread modules.
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 1. Clone the repo
-  `git clone https://github.com/ylago77/tcp_server_client`
+  `git clone https://github.com/lago77/tcp_server_client`
 
 2. Run mainfile.py
   `mainfile.py`
