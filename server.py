@@ -2,6 +2,8 @@
 import argparse, socket, time
 
 class Server():
+    global socklist
+    socklist=[]
     #initializes a server instance and binds it to the host network ip
     def __init__(self, address, port):
         self.listener = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -9,6 +11,7 @@ class Server():
         self.listener.bind((address,1060))
         self.listener.listen()
         print('Listening at {}'.format(self.listener.getsockname()))
+        
         #return self.listener
         #self.serve(self.listener)
     def ret_listener(self):
@@ -17,6 +20,7 @@ class Server():
     def serve(self,listener):
         while True:
             sock, address = listener.accept()
+            socklist.append(sock)
             print("Connection from {} has been accepted".format(address))
             self.handler(sock)
 
@@ -34,7 +38,7 @@ class Server():
     ###method to receive communication a peer then to send it back. 
     def comm(self,sock):
         clientmsg = self.recv_msg(sock,b'?')
-        sendback = "This is what you sent: "+clientmsg.decode('ascii')
+        sendback = "This is what you sent: "+clientmsg.decode('ascii')[:len(clientmsg)-1]
         sock.sendall(sendback.encode('ascii'))
       
 
