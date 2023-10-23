@@ -7,7 +7,7 @@ This project features a rudimentary TCP server that can listen in on multiple cl
 **Built with**
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-This project was written in python implementing the socket and thread modules. 
+This project was written in python utilizing the socket and thread modules for a server that could handle multiple clients simultaneously.
 
 
 **Getting started**
